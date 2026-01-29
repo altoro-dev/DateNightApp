@@ -32,6 +32,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     }
 
     // onCreateViewHolder - Creates new ViewHolders when needed
+    @NonNull
+    @Override
     public OptionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_option, parent, false);
@@ -41,6 +43,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     }
 
     // onBindViewHolder - Binds data to an existing ViewHolder
+    @Override
     public void onBindViewHolder(@NonNull OptionViewHolder holder, int position) {
         // Get the DateOption for this position
         DateOption option = options.get(position);
@@ -54,6 +57,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     }
 
     // getItemCount() - Returns total number of items in list
+    @Override
     public int getItemCount() {
         return options.size();
     }

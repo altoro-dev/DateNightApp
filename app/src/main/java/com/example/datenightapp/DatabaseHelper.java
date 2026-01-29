@@ -30,6 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Called only when database is created for the first time
+    @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_OPTIONS + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," // Auto generates IDs
@@ -72,6 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Called when database version number increases
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPTIONS);
 
