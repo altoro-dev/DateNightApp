@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -72,6 +74,26 @@ public class ListActivity extends AppCompatActivity implements OptionAdapter.OnI
 
         pickRandomButton.setOnClickListener(v -> pickRandomOption());
         addButton.setOnClickListener(v -> showAddDialog());
+
+        // HANDLE SYSTEM BARS (Status Bar and Navigation Bar)
+        // Prevents the toolbar and buttons from being covered
+        View buttonContainer = findViewById(R.id.buttonContainer);
+
+        ViewCompat.setOnApplyWindowInsetsListener(buttonContainer, (v, insets) -> {
+            // Get bottom inset (height of navigation bar)
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+
+            // Apply padding to bottom of button container
+            // Pushes buttons up so they're not covered by nav bar
+            v.setPadding(
+                    v.getPaddingLeft(),
+                    v.getPaddingTop(),
+                    v.getPaddingRight(),
+                    bottomInset + 16 // 16dp extra padding for comfort
+            );
+
+            return insets;
+        });
     }
 
     // loadOptions() - Loads data from database and updates UI
