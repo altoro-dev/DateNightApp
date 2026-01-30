@@ -1,17 +1,9 @@
 package com.example.datenightapp;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.util.List;
 
 // MainActivity - The entry point of the Date Night app
 // Home screen that displays the main options
