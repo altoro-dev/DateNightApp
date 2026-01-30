@@ -32,7 +32,7 @@
             android:layout_marginEnd="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_edit"
-            android:tint="#4ECDC4"
+            android:tint="#9B7EBD"
             android:contentDescription="Edit" />
 
         <ImageButton
@@ -43,7 +43,7 @@
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"
-            android:tint="#FF6B6B"
+            android:tint="#FF8FB1"
             android:contentDescription="Delete" />
 
     </RelativeLayout>

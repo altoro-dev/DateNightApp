@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.DateNightApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#FF6B6B</item>
-        <item name="colorPrimaryVariant">#E55555</item>
+        <!-- Primary color - Deep purple from the sky -->
+        <item name="colorPrimary">#6B4C9A</item>
+        <item name="colorPrimaryVariant">#4A3470</item>
         <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorSecondary">#4ECDC4</item>
-        <item name="colorSecondaryVariant">#3DB8AF</item>
+
+        <!-- Secondary color - Warm sunset pink/orange -->
+        <item name="colorSecondary">#FF6B9D</item>
+        <item name="colorSecondaryVariant">#E55A8A</item>
         <item name="colorOnSecondary">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">#4A3470</item>
     </style>
 </resources>

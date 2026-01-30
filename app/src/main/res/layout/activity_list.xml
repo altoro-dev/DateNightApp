@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#FF6B6B"
+            android:background="#6B4C9A"
             app:title="Date Night Options"
             app:titleTextColor="#FFFFFF" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -57,7 +57,7 @@
             android:text="🎲 Pick Random"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:backgroundTint="#FF6B6B"
+            android:backgroundTint="#6B4C9A"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="8dp" />
 
@@ -68,7 +68,7 @@
             android:text="➕ Add Option"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:backgroundTint="#4ECDC4"
+            android:backgroundTint="#FF8FB1"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
