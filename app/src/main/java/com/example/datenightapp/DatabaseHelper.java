@@ -50,16 +50,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Default activities - common date ideas
         insertOption(db, "Watch a movie", "activity");
         insertOption(db, "Go for a walk", "activity");
-        insertOption(db, "Play Happy Little Dinosaurs", "activity");
+        insertOption(db, "Play a game", "activity");
         insertOption(db, "Cook together", "activity");
-        insertOption(db, "Play Minecraft", "activity");
+        insertOption(db, "Build legos", "activity");
 
         // Default food options - popular choices
         insertOption(db, "Pizza", "food");
-        insertOption(db, "Culvers", "food");
-        insertOption(db, "McDonalds", "food");
+        insertOption(db, "Culver's", "food");
+        insertOption(db, "McDonald's", "food");
         insertOption(db, "Canes", "food");
         insertOption(db, "Chic-fil-A", "food");
+
+        // Default watch options - movies/shows
+        insertOption(db, "Star Wars", "watch");
+        insertOption(db, "Marvel", "watch");
+        insertOption(db, "DC", "watch");
+        insertOption(db, "Anime", "watch");
+        insertOption(db, "Current show", "watch");
+
+        // Default game options - games to play
+        insertOption(db, "Happy Little Dinosaurs", "game");
+        insertOption(db, "Minecraft", "game");
+        insertOption(db, "Twisted Cryptids", "game");
+        insertOption(db, "Wyrmspan", "game");
+        insertOption(db, "Everdell", "game");
     }
 
     // Helper method to insert a single option
@@ -106,7 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // ArrayList to store result
         List<DateOption> options = new ArrayList<>();
 
-        // Opens for read-only acces
+        // Opens for read-only access
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(

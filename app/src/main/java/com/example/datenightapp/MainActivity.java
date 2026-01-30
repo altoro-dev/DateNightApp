@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         // findViewById() locates views from the layout by their ID
         CardView activitiesCard = findViewById(R.id.activitiesCard);
         CardView foodCard = findViewById(R.id.foodCard);
+        CardView watchCard = findViewById(R.id.watchCard);
+        CardView gameCard = findViewById(R.id.gameCard);
 
         // Click Listener for Activities Card
         activitiesCard.setOnClickListener(v -> {
@@ -43,6 +45,22 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ListActivity.class);
             intent.putExtra("TYPE", "food");
             intent.putExtra("TITLE", "What to Eat");
+            startActivity(intent);
+        });
+
+        // Click Listener for Watch Card
+        watchCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ListActivity.class);
+            intent.putExtra("TYPE", "watch");
+            intent.putExtra("TITLE", "What to Watch");
+            startActivity(intent);
+        });
+
+        // Click Listener for Game Card
+        gameCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ListActivity.class);
+            intent.putExtra("TYPE", "game");
+            intent.putExtra("TITLE", "Game Night");
             startActivity(intent);
         });
     }
