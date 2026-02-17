@@ -34,7 +34,7 @@ A simple Android app to help you and your girlfriend decide what to do or eat on
 
 1. Clone this repository
 ```bash
-   git clone https://github.com/yourusername/DateNightApp.git
+   git clone https://github.com/altoro-dev/DateNightApp.git
 ```
 2. Open in Android Studio
 3. Run on emulator or physical device (API 24+)
