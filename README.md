@@ -62,11 +62,11 @@ A simple Android app to help you and your girlfriend decide what to do or eat on
 - Uninstall the app from your device/emulator and reinstall
 - This will create a fresh database
 
-## 👨‍💻 Author
+## Author
 
-Created with ❤️ for date nights
+Created with love for date nights
 
-## 🌟 Show Your Support
+## Show Your Support
 
 Give a ⭐️ if this project helped you!
 
