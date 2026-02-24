@@ -23,20 +23,6 @@
             app:titleTextColor="#FFFFFF" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Bottom Navigation -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/bottom_nav_colors"
-        app:itemTextColor="@color/bottom_nav_colors"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemBackground="@null"
-        app:labelVisibilityMode="labeled" />
-
     <!-- Recipe list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -58,5 +44,20 @@
         android:textColor="#999999"
         android:gravity="center"
         android:visibility="gone" />
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@null" />
 
 </RelativeLayout>

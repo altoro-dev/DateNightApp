@@ -53,15 +53,6 @@ public class RecipeListActivity extends AppCompatActivity {
         // Setup bottom navigation
          bottomNav = findViewById(R.id.bottomNavigation);
         setupBottomNavigation();
-
-        // Handle system bars
-        View root = findViewById(android.R.id.content);
-        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            int topInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
-            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
-            v.setPadding(0, topInset, 0, bottomInset);
-            return insets;
-        });
     }
 
     // Load all recipes from database and display them
