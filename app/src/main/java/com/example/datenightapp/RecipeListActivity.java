@@ -50,7 +50,7 @@ public class RecipeListActivity extends AppCompatActivity {
         // Load recipes from database
         loadRecipes();
 
-        /** TODO: Setup bottom navigation
+        // Setup bottom navigation
          bottomNav = findViewById(R.id.bottomNavigation);
         setupBottomNavigation();
 
@@ -62,7 +62,6 @@ public class RecipeListActivity extends AppCompatActivity {
             v.setPadding(0, topInset, 0, bottomInset);
             return insets;
         });
-         */
     }
 
     // Load all recipes from database and display them
@@ -87,7 +86,7 @@ public class RecipeListActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    /** TODO: Setup bottom navigation
+    // Setup bottom navigation
     private void setupBottomNavigation() {
         bottomNav.setSelectedItemId(R.id.nav_recipes);
         bottomNav.setOnItemSelectedListener(item -> {
@@ -110,13 +109,12 @@ public class RecipeListActivity extends AppCompatActivity {
             return false;
         });
     }
-     */
 
     @Override
     protected void onResume() {
         super.onResume();
         loadRecipes();
-        // TODO: bottomNav.setSelectedItemId(R.id.nav_recipes);
+        bottomNav.setSelectedItemId(R.id.nav_recipes);
     }
 
     @Override

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F5F5">
+
+    <!-- Main Content ScrollView -->
+    <ScrollView
+        android:id="@+id/contentScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <!-- Top Greeting Section -->
+            <TextView
+                android:id="@+id/greetingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Evening ❤️"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#6B4C9A"
+                android:layout_marginTop="40dp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's plan something unforgettable."
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center" />
+
+            <!-- Today's Date -->
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friday, February 18, 2026"
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Featured "Tonight's Pick" Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Gradient Background (applied via drawable) -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_card_background"
+                    android:padding="24dp">
+
+                    <!-- Card Title -->
+                    <TextView
+                        android:id="@+id/cardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎲 Tonight's Suggestion"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="20dp" />
+
+                    <!-- Suggestions Container -->
+                    <LinearLayout
+                        android:id="@+id/suggestionsContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardTitle"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp">
+
+                        <!-- Food Suggestion -->
+                        <TextView
+                            android:id="@+id/foodSuggestion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🍝 Pizza"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginBottom="12dp" />
+
+                        <!-- Movie Suggestion -->
+                        <TextView
+                            android:id="@+id/movieSuggestion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎬 Romantic Comedy"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginBottom="12dp" />
+
+                        <!-- Game Suggestion -->
+                        <TextView
+                            android:id="@+id/gameSuggestion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎮 Card Games"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF" />
+
+                    </LinearLayout>
+
+                    <!-- Surprise Button -->
+                    <Button
+                        android:id="@+id/surpriseButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_below="@id/suggestionsContainer"
+                        android:layout_marginTop="20dp"
+                        android:text="✨ Surprise Us Again"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"
+                        android:textColor="#6B4C9A" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Helpful Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap 'Decide' below to customize your options"
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@null" />
+
+</RelativeLayout>

@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="dn_text_primary">#1A1A1A</color>
+    <color name="dn_text_secondary">#666666</color>
 </resources>

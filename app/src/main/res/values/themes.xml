@@ -11,6 +11,10 @@
         <item name="colorSecondaryVariant">#E55A8A</item>
         <item name="colorOnSecondary">#FFFFFF</item>
 
+        <item name="android:colorBackground">#FFF5F5F5</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#1A1A1A</item>
+
         <!-- Status bar color -->
         <item name="android:statusBarColor">#4A3470</item>
     </style>

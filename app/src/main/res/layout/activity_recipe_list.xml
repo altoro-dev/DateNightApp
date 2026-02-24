@@ -23,16 +23,31 @@
             app:titleTextColor="#FFFFFF" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemBackground="@null"
+        app:labelVisibilityMode="labeled" />
+
     <!-- Recipe list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/appBarLayout"
+        android:layout_above="@id/bottomNavigation"
         android:padding="16dp"
         android:clipToPadding="false" />
 
-    <!-- Empty state text (shown when no recipes) -->
+    <!-- Empty state text -->
     <TextView
         android:id="@+id/emptyText"
         android:layout_width="wrap_content"

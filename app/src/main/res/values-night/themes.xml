@@ -35,7 +35,7 @@
         <item name="android:navigationBarColor">#121212</item>
 
         <!-- Text colors -->
-        <item name="android:textColorPrimary">#E1E1E1</item>
-        <item name="android:textColorSecondary">#B3B3B3</item>
+        <item name="android:textColorPrimary">@color/dn_text_primary</item>
+        <item name="android:textColorSecondary">@color/dn_text_secondary</item>
     </style>
 </resources>

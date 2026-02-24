@@ -11,19 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DateNightApp">
+
+        <!-- HOME ACTIVITY -->
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- DECIDE ACTIVITY (formerly MainActivity) -->
+        <activity
+            android:name=".DecideActivity"
+            android:parentActivityName=".HomeActivity" />
+
+        <!-- LIST ACTIVITY -->
         <activity
             android:name=".ListActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".DecideActivity" />
+
+        <!-- RECIPE LIST ACTIVITY -->
+        <activity
+            android:name=".RecipeListActivity"
+            android:parentActivityName=".HomeActivity" />
+
     </application>
 
 </manifest>
