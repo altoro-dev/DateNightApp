@@ -37,6 +37,11 @@
             android:name=".RecipeListActivity"
             android:parentActivityName=".HomeActivity" />
 
+        <!-- RECIPE DETAIL ACTIVITY -->
+        <activity
+            android:name=".RecipeDetailActivity"
+            android:parentActivityName=".RecipeListActivity" />
+
     </application>
 
 </manifest>

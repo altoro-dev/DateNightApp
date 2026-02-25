@@ -53,7 +53,7 @@
                 android:layout_weight="1"
                 android:text="Category"
                 android:textSize="12sp"
-                android:textColor="#E8A87C"
+                android:textColor="#FF8FB1"
                 android:textStyle="bold" />
 
             <!-- Time and Servings -->

@@ -51,7 +51,7 @@ public class RecipeListActivity extends AppCompatActivity {
         loadRecipes();
 
         // Setup bottom navigation
-         bottomNav = findViewById(R.id.bottomNavigation);
+        bottomNav = findViewById(R.id.bottomNavigation);
         setupBottomNavigation();
     }
 
@@ -70,9 +70,10 @@ public class RecipeListActivity extends AppCompatActivity {
 
         // Setup adapter with click listener
         adapter = new RecipeAdapter(recipes, recipe -> {
-            Toast.makeText(this,
-                    "Clicked: " + recipe.getName() + "\n(Detail view coming soon!)",
-                    Toast.LENGTH_SHORT).show();
+            // Open recipe detail screen
+            Intent intent = new Intent(RecipeListActivity.this, RecipeDetailActivity.class);
+            intent.putExtra("RECIPE_ID", recipe.getId());
+            startActivity(intent);
         });
         recyclerView.setAdapter(adapter);
     }
