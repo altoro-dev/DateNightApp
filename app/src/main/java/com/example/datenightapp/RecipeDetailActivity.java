@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -103,6 +106,43 @@ public class RecipeDetailActivity extends AppCompatActivity {
         }
     }
 
+    // Create options menu with delete button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+
+        // Add delete option to toolbar menu
+        menu.add(0, 1, 0, "Delete")
+                .setIcon(android.R.drawable.ic_menu_delete)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        return true;
+    }
+
+    // Show confirmation dialog before deleting recipe
+    private void showDeleteConfirmation() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Recipe?")
+                .setMessage("Are you sure you want to delete this recipe? This cannot be undone.")
+                .setPositiveButton("Delete", (dialog, which) -> {
+                    // User confirmed - delete the recipe
+                    deleteRecipe();
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> {
+                    // User cancelled - do nothing
+                    dialog.dismiss();
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+    // Delete the recipe from database and return to list
+    private void deleteRecipe() {
+        dbHelper.deleteRecipe(recipeId);
+        Toast.makeText(this, "Recipe deleted", Toast.LENGTH_SHORT).show();
+        finish(); // Return to recipe list
+    }
+
     // Setup bottom navigation
     private void setupBottomNavigation() {
         bottomNav.setSelectedItemId(R.id.nav_recipes);
@@ -137,6 +177,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
+            return true;
+        } else if (item.getItemId() == 1) {  // Delete menu item
+            showDeleteConfirmation();
             return true;
         }
         return super.onOptionsItemSelected(item);

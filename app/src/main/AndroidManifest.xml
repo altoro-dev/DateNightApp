@@ -42,6 +42,12 @@
             android:name=".RecipeDetailActivity"
             android:parentActivityName=".RecipeListActivity" />
 
+        <!-- ADD RECIPE ACTIVITY -->
+        <activity
+            android:name=".AddRecipeActivity"
+            android:parentActivityName=".RecipeListActivity"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

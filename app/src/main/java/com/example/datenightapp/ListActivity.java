@@ -21,23 +21,11 @@ import java.util.Random;
 
 // ListActivity - Main Activity for Displaying and Managing Date Options
 public class ListActivity extends AppCompatActivity implements OptionAdapter.OnItemClickListener {
-    // INSTANCE VARIABLES
-    // Displays the scrollable list of options
     private RecyclerView recyclerView;
-
-    // Bridges data (List) to views (RecyclerView)
     private OptionAdapter adapter;
-
-    // Database manager for CRUD operations
     private DatabaseHelper dbHelper;
-
-    // Determines which category to display
     private String type;
-
-    // The current list of date options
     private List<DateOption> options;
-
-    // TextView shown when list is empty
     private TextView emptyText;
 
     @Override

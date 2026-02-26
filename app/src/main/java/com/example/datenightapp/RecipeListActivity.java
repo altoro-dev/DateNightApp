@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -49,6 +50,13 @@ public class RecipeListActivity extends AppCompatActivity {
 
         // Load recipes from database
         loadRecipes();
+
+        // Floating Action Button - Add Recipe
+        FloatingActionButton fabAddRecipe = findViewById(R.id.fabAddRecipe);
+        fabAddRecipe.setOnClickListener(v -> {
+            Intent intent = new Intent(RecipeListActivity.this, AddRecipeActivity.class);
+            startActivity(intent);
+        });
 
         // Setup bottom navigation
         bottomNav = findViewById(R.id.bottomNavigation);

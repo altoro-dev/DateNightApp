@@ -60,4 +60,18 @@
         app:labelVisibilityMode="labeled"
         app:itemBackground="@null" />
 
+    <!-- Floating Action Button to Add Recipe -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#FF8FB1"
+        app:tint="#FFFFFF"
+        android:contentDescription="Add Recipe" />
+
 </RelativeLayout>
