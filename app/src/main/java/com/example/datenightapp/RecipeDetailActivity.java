@@ -111,12 +111,24 @@ public class RecipeDetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
 
+        // Add edit option
+        menu.add(0, 2, 0, "Edit")
+                .setIcon(android.R.drawable.ic_menu_edit)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
         // Add delete option to toolbar menu
         menu.add(0, 1, 0, "Delete")
                 .setIcon(android.R.drawable.ic_menu_delete)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         return true;
+    }
+
+    // Open edit screen for this recipe
+    private void openEditScreen() {
+        Intent intent = new Intent(RecipeDetailActivity.this, AddRecipeActivity.class);
+        intent.putExtra("RECIPE_ID", recipeId);  // Pass ID to enter EDIT mode
+        startActivity(intent);
     }
 
     // Show confirmation dialog before deleting recipe
@@ -170,6 +182,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        loadRecipe();
         bottomNav.setSelectedItemId(R.id.nav_recipes);
     }
 
@@ -177,6 +190,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
+            return true;
+        } else if (item.getItemId() == 2) { // Edit menu item
+            openEditScreen();
             return true;
         } else if (item.getItemId() == 1) {  // Delete menu item
             showDeleteConfirmation();

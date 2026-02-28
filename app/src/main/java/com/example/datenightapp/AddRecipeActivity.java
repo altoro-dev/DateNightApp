@@ -26,20 +26,26 @@ public class AddRecipeActivity extends AppCompatActivity {
     private Button saveButton;
 
     private RecipeDatabaseHelper dbHelper;
+    private int recipeId = -1;  // -1 means ADD mode, other value means EDIT mode
+    private boolean isEditMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
 
+        // Initialize database
+        dbHelper = new RecipeDatabaseHelper(this);
+
+        // Check if editing an existing recipe
+        recipeId = getIntent().getIntExtra("RECIPE_ID", -1);
+        isEditMode = (recipeId != -1);
+
         // Setup toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Add New Recipe");
+        getSupportActionBar().setTitle(isEditMode ? "Edit Recipe" : "Add New Recipe");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // Initialize database
-        dbHelper = new RecipeDatabaseHelper(this);
 
         // Initialize views
         nameInput = findViewById(R.id.nameInput);
@@ -53,8 +59,16 @@ public class AddRecipeActivity extends AppCompatActivity {
         notesInput = findViewById(R.id.notesInput);
         saveButton = findViewById(R.id.saveButton);
 
+        // Update button text based on mode
+        saveButton.setText(isEditMode ? "💾 Save Changes" : "💾 Save Recipe");
+
         // Setup category spinner
         setupCategorySpinner();
+
+        // If edit mode, load existing recipe data
+        if (isEditMode) {
+            loadRecipeData();
+        }
 
         // Save button click
         saveButton.setOnClickListener(v -> saveRecipe());
@@ -72,7 +86,42 @@ public class AddRecipeActivity extends AppCompatActivity {
         categorySpinner.setAdapter(adapter);
 
         // Set default to Dinner
-        categorySpinner.setSelection(2);
+        if (!isEditMode) {
+            categorySpinner.setSelection(2);
+        }
+    }
+
+    // Load recipe data from database and populate form (EDIT MODE only)
+    private void loadRecipeData() {
+        Recipe recipe = dbHelper.getRecipe(recipeId);
+
+        if (recipe == null) {
+            Toast.makeText(this, "Recipe not found", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        // Populate form with existing data
+        nameInput.setText(recipe.getName());
+        descriptionInput.setText(recipe.getDescription());
+        servingsInput.setText(String.valueOf(recipe.getServings()));
+        prepTimeInput.setText(String.valueOf(recipe.getPrepTime()));
+        cookTimeInput.setText(String.valueOf(recipe.getCookTime()));
+        ingredientsInput.setText(recipe.getIngredients());
+        instructionsInput.setText(recipe.getInstructions());
+
+        if (recipe.getNotes() != null && !recipe.getNotes().isEmpty()) {
+            notesInput.setText(recipe.getNotes());
+        }
+
+        // Set category spinner to current category
+        String[] categories = {"Breakfast", "Lunch", "Dinner", "Dessert", "Snack"};
+        for (int i = 0; i < categories.length; i++) {
+            if (categories[i].equals(recipe.getCategory())) {
+                categorySpinner.setSelection(i);
+                break;
+            }
+        }
     }
 
     // Validate input and save recipe to database
@@ -164,27 +213,51 @@ public class AddRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        // Create recipe object
-        Recipe recipe = new Recipe(
-                name,
-                category,
-                description,
-                servings,
-                prepTime,
-                cookTime,
-                ingredients,
-                instructions,
-                notes.isEmpty() ? null : notes
-        );
+        // CREATE OR UPDATE based on mode
+        if (isEditMode) {
+            // UPDATE existing recipe
+            Recipe recipe = dbHelper.getRecipe(recipeId);
+            recipe.setName(name);
+            recipe.setCategory(category);
+            recipe.setDescription(description);
+            recipe.setServings(servings);
+            recipe.setPrepTime(prepTime);
+            recipe.setCookTime(cookTime);
+            recipe.setIngredients(ingredients);
+            recipe.setInstructions(instructions);
+            recipe.setNotes(notes.isEmpty() ? null : notes);
 
-        // Save to database
-        long id = dbHelper.addRecipe(recipe);
+            int rowsAffected = dbHelper.updateRecipe(recipe);
 
-        if (id != -1) {
-            Toast.makeText(this, "Recipe added successfully! 🎉", Toast.LENGTH_SHORT).show();
-            finish(); // Return to recipe list
+            if (rowsAffected > 0) {
+                Toast.makeText(this, "Recipe updated successfully! ✅", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Error updating recipe", Toast.LENGTH_SHORT).show();
+            }
+
         } else {
-            Toast.makeText(this, "Error saving recipe", Toast.LENGTH_SHORT).show();
+            // ADD new recipe
+            Recipe recipe = new Recipe(
+                    name,
+                    category,
+                    description,
+                    servings,
+                    prepTime,
+                    cookTime,
+                    ingredients,
+                    instructions,
+                    notes.isEmpty() ? null : notes
+            );
+
+            long id = dbHelper.addRecipe(recipe);
+
+            if (id != -1) {
+                Toast.makeText(this, "Recipe added successfully! 🎉", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Error saving recipe", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
