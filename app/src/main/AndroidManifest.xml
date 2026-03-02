@@ -48,6 +48,20 @@
             android:parentActivityName=".RecipeListActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- GAME LIST ACTIVITY -->
+        <activity
+            android:name=".GameListActivity"
+            android:parentActivityName=".HomeActivity" />
+
+        <!-- DEEP QUESTIONS ACTIVITY -->
+        <activity
+            android:name=".DeepQuestionsActivity"
+            android:parentActivityName=".GameListActivity" />
+
+        <activity
+            android:name=".QuestionDisplayActivity"
+            android:parentActivityName=".DeepQuestionsActivity" />
+
     </application>
 
 </manifest>

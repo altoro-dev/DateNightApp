@@ -143,8 +143,8 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             } else if (itemId == R.id.nav_games) {
-                // TODO: Games placeholder - Add games
-                Toast.makeText(this, "Games coming soon! 🎮", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, GameListActivity.class));
+                overridePendingTransition(0, 0);
                 return true;
             }
 
