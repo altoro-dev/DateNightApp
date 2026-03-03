@@ -62,6 +62,10 @@
             android:name=".QuestionDisplayActivity"
             android:parentActivityName=".DeepQuestionsActivity" />
 
+        <activity
+            android:name=".FavoritesActivity"
+            android:parentActivityName=".DeepQuestionsActivity" />
+
     </application>
 
 </manifest>

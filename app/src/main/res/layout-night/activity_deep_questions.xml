@@ -231,6 +231,18 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp" />
 
+            <!-- View Favorites Button -->
+            <Button
+                android:id="@+id/viewFavoritesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭐ View Favorites"
+                android:textSize="14sp"
+                android:backgroundTint="#6B4C9A"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp" />
+
         </LinearLayout>
 
     </ScrollView>
