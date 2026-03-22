@@ -52,7 +52,7 @@ A simple Android app to help you and your girlfriend decide what to do or eat on
 
 ## Screenshots
 
-![Home Screen](screenshots/home_screen.png)
+![Home Screen](screenshots/home.png)
 ![Decide Screen](screenshots/decide_screen.png)
 ![List Screen](screenshots/list_screen.png)
 ![Recipe List Screen](screenshots/recipe_list_screen.png)
